@@ -1,0 +1,167 @@
+*{
+	box-sizing: border-box;
+	//border: 1px solid black;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.6);
+  height: 50px;
+}
+
+.topnav *{
+	margin:0px 5px;
+}
+
+.logo{
+	float: left;	
+	padding: 0px 10px;
+}
+
+.nav-icon{
+	float: left;
+	text-align: center;
+	height: 100%;
+	padding: 14px 16px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+.nav-icon:hover{
+	background-color: rgba(0,0,0,0.2);
+}
+
+.nav-icon:active{
+	background-color: rgba(0,0,0,0.4);
+}
+
+.nav-icon:visited{
+	color: white;
+}
+
+.link{
+	text-decoration: none;
+}
+
+.form{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	min-width: 200px;
+	max-width: 300px;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.form-entry{
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.form-label{
+	text-align: left;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-input{
+	font-size: 30px;
+	width: 100%;
+}
+
+.form-input:focus{
+	border-width: 2px;
+}
+
+.form-btn{
+	float: left;
+	margin: 0px !important;
+	padding: 0;
+	width: 50%;
+	font-size: 16px;
+	background-color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.form-btn:hover{
+	background-color: rgba(0,0,0,0.1);
+}
+
+.mx-auto{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.row{
+	max-width: 1000px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin:0 auto;
+}
+
+.row::before,
+.row::after{
+	display: table;
+	content: " ";
+}
+
+
+
+.row::after{
+	clear: both;
+}
+
+
+@media only screen and (min-width: 640px)
+{
+	.col-3, .col-4, .col-6, .col-12{
+		float: left;
+		padding: 1.04166666%;
+		width: 100%;
+	}
+
+	.col-3{
+		width: 25%;
+	}
+
+	.col-4{
+		width: 33.33%;
+	}
+
+	.col-6{
+		width: 50%;
+	}
+
+	.col-12{
+		width: 100%;
+	}
+}
+
+.t-1{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.info-card{
+	border: 2px solid;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.text-right{
+	text-align: right;
+}
+
+
+
