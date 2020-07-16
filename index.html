@@ -7,21 +7,52 @@
 <body>
 	<div class="topnav">
 		<a href="index.html">
+			<span class="nav-icon">CSSS</span>
 			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
 		</a>
-		<a href="" class="nav-icon link">RESULTS</a>
+		<a href="htmls/result.html" class="nav-icon link">RESULTS</a>
 	</div>
-	<form class="form">
+	<div class="row">
+		<div class="col-4"></div>
+		<ul class="top-error col-4">
+		<li>Email doesn't match with record</li>
+		<li>Use JS to add/remove item</li>
+	</ul>
+	</div>
+	
+
+	<form class="form">		
 		<div class="form-entry">
-			<label class="form-label" for="email">Email Address</label>
-			<input class="form-input" type="Email" name="email" id="email"/>
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="email">Email Address</label>
+			</div>
+			<div class="row">
+				<div class="col-4"></div>
+				<input class="form-input input-error col-4" type="email" name="email" id="email"/>
+				<p class="form-error col-4">Wrong Email</p>
+			</div>				
 		</div>
+		
 		<div class="form-entry">
-			<label class="form-label" for="email">Password</label>
-			<input class="form-input" type="Password" name="password" id="password">
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="password">Password</label>
+			</div>
+			<div class="row">
+				<div class="col-4"></div>
+				<input class="form-input input-error col-4" type="password" name="password" id="password"/>
+				<p class="form-error col-4">Wrong Password</p>
+			</div>				
 		</div>
-		<input class="form-btn" type="submit" name="sign-up" value="Sign Up"/>
-		<input class="form-btn" type="submit" name="login" value="Login"/>
+		<div class="row">
+			<div class="col-4"></div>
+				<a class="link" href="htmls/signUp.html">
+					<p class="form-btn col-2 black">Sign Up</p>
+				</a>
+				<input type="submit" class="form-btn col-2" name="login" value="Login"/>
+		</div>
+
 	</form>
 
 	<div class="mx-auto">
@@ -30,7 +61,7 @@
 				<div class="row">
 					<div class="col-4"></div>
 					<div class="col-4"></div>
-					<div class="col-4 text-right">
+					<div class="col-4 text-right grey">
 						<span>Closing on</span>
 						<span>Aug 20, 2020</span>  
 					</div>
@@ -47,7 +78,7 @@
 				<div class="row">
 					<div class="col-4"></div>
 					<div class="col-4"></div>
-					<div class="col-4 text-right">
+					<div class="col-4 text-right grey">
 						<span>Closing on</span>
 						<span>Aug 20, 2020</span>  
 					</div>

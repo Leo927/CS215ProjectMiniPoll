@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSSS Poll Main Page</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+</head>
+<body>
+	<div class="topnav">
+		<a href="../index.html">
+			<span class="nav-icon">CSSS</span>
+			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
+		</a>
+		<a href="result.html" class="nav-icon link">RESULTS</a>
+	</div>
+	<div class="mx-auto">
+		<h1 class="text-center">Sign Up</h1>	
+	</div>
+	
+	<form class="form">		
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="email">Email Address</label>
+			</div>
+			<div class="row">
+				<div class="col-4 text-right"></div>
+				<input class="form-input input-error col-4" type="email" name="email" id="email"/>
+				<p class="form-error col-4">Incorrect Email Format</p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="screenName">Screen Name</label>
+			</div>
+			<div class="row">
+				<div class="col-4">2 characters or more, no special character</div>
+				<input class="form-input input-error col-4" type="text" name="screenName" id="screenName"/>
+				<p class="form-error col-4">Incorrect Screen Name Format</p>
+			</div>				
+		</div>
+		
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="password">Password</label>
+			</div>
+			<div class="row">
+				<div class="col-4">8 characters or more, no special characters</div>
+				<input class="form-input col-4" type="password" name="password" id="password"/>
+				<p hidden="true" class="form-error col-4">Incorrect Password Format</p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-4"></div>
+				<label class="form-label col-4" for="password">Password</label>
+			</div>
+			<div class="row">
+				<div class="col-4">8 characters or more, no special characters</div>
+				<input class="form-input col-4" type="password" name="password" id="password"/>
+				<p hidden="true" class="form-error col-4">Incorrect Password Format</p>
+			</div>				
+		</div>
+		
+		<div class="row">
+			<div class="col-4"></div>
+			<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>
+		</div>
+
+	</form>
+</body>
+</html>
