@@ -12,13 +12,15 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: rgba(0,0,0,0.4);
-  height: 50px;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .topnav *{
-	margin:0px 5px;
+	margin:0px 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
+
 
 .logo{
 	float: left;	
@@ -32,23 +34,18 @@ body {
 	padding: 14px 16px;
 	font-size: 20px;
 	font-weight: bold;
-	color: white;
+	text-transform: uppercase;
+}
+
+
+.link,
+.link *{
+	text-decoration: none;
 }
 
 .link:hover{
 	background-color: rgba(0,0,0,0.1);
-}
-
-.link:active{
-	background-color: rgba(0,0,0,0.2);
-}
-
-.link:visited{
-	color: white;
-}
-
-.link{
-	text-decoration: none;
+	cursor: pointer;
 }
 
 .form{
@@ -181,19 +178,10 @@ body {
 	border: 2px solid;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	color: rgba(0,0,0,0.1);
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
-
-.info-card:hover{
-	background-color: rgba(0,0,0,0.1);
-	color: rgba(0,0,0,0.1);
-}
-
-.info-card *:visited{
-	color: #666666;
-
-}
 
 .text-right{
 	text-align: right;
@@ -225,4 +213,113 @@ body {
 
 .top-error>li{
 	color: red;
+}
+
+.background-primary{
+	background-color:#078A81;
+}
+
+.background-secondary{
+	background-color:#587068;
+}
+
+.color-primary,
+.color-primary:visited,
+.color-primary:hover,
+.color-primary:active{
+	color: black;
+}
+
+.color-secondary,
+.color-secondary:visited,
+.color-secondary:hover,
+.color-secondary:active{
+	color: #70664C;
+}
+
+.graph-bar{
+	background-color: #4CAF50;
+	height: 15px;
+	display: inline-block;
+}
+
+.avator{
+	padding: 0px 10px;
+}
+
+.user-name{
+	text-align: center;
+	height: 100%;
+	padding: 14px 16px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.float-right{
+	float: right;
+}
+
+.float-left{
+	float:left;
+}
+
+.option-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.option-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.option-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.option-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.option-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.option-container .checkmark:after {
+ 	top: 3px;
+	left: 3px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.color-sucess,
+.color-sucess:visited{
+	color: #4CAF50;
 }

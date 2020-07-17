@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CSSS Poll Main Page</title>
+	<title>CSSS Poll Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 <body>
 	<div class="topnav">
 		<a href="../index.html">
-			<span class="nav-icon">CSSS</span>
+			<span class="nav-icon black">CSSS</span>
 			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
 		</a>
-		<a href="result.html" class="nav-icon link">RESULTS</a>
+		<a href="htmls/result.html" class="nav-icon link black">RESULTS</a>
 	</div>
 	<div class="mx-auto">
 		<h1 class="text-center">Sign Up</h1>	
@@ -56,18 +56,21 @@
 		<div class="form-entry">
 			<div class="row">
 				<div class="col-4"></div>
-				<label class="form-label col-4" for="password">Password</label>
+				<label class="form-label col-4" for="password">Confirm Password</label>
 			</div>
 			<div class="row">
-				<div class="col-4">8 characters or more, no special characters</div>
+				<div class="col-4"></div>
 				<input class="form-input col-4" type="password" name="password" id="password"/>
-				<p hidden="true" class="form-error col-4">Incorrect Password Format</p>
+				<p hidden="true" class="form-error col-4">Passwords Don't Match</p>
 			</div>				
 		</div>
-		
+
 		<div class="row">
 			<div class="col-4"></div>
-			<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>
+			<a class="link" href="management.html">
+					<p class="form-btn col-4 black">Sign Up</p>
+			</a>
+			<!--<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>-->
 		</div>
 
 	</form>

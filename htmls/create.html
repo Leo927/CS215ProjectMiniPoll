@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSSS Poll Create Poll</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+	<div class="topnav">
+		<a href="../index.html">
+			<span class="nav-icon black">CSSS</span>
+			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
+		</a>
+		<a href="create.html" class="nav-icon link black">CREATE</a>
+		<a href="management.html" class="nav-icon link black">MANAGE</a>
+		<a href="result.html" class="nav-icon link black">RESULTS</a>
+		
+		<span class="user-name black float-right">
+			<span>Hi</span>
+			<span>Leo</span>
+		</span>
+		<img class="avator float-right" src="https://via.placeholder.com/50">
+		
+	</div>
+
+	<div class="mx-auto">
+		<h1 class="text-center">Create Poll</h1>	
+	</div>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="color-sucess">New vote: Vote for CSSS Prescident is created succesively. </div>
+	</div>
+
+
+	<form class="form">		
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="title">Title</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<input class="form-input col-6" type="text" name="title" id="title"/>
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="openDate">Open Date</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<input class="form-input col-6" type="Date" name="openDate" id="openDate"/>
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="closeDate">Close Date</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<input class="form-input col-6" type="Date" name="closeDate" id="closeDate"/>
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="question">Question</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<textarea class="form-input col-6" rows="3" name="question" id="question"></textarea> 
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+		
+		
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="answer1">Answer 1</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<textarea class="form-input col-6" rows="3" name="answer1" id="answer1"></textarea> 
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+
+		<div class="form-entry">
+			<div class="row">
+				<div class="col-3"></div>
+				<label class="form-label col-4" for="answer2">Answer 2</label>
+			</div>
+			<div class="row">
+				<div class="col-3 text-right"></div>
+				<textarea class="form-input col-6" rows="3" name="answer2" id="answer2"></textarea> 
+				<p class="form-error col-3"></p>
+			</div>				
+		</div>
+		<div class="row">
+			<div class="col-3"></div>
+			<i class="link far fa-plus-square fa-5x"></i>
+		</div>
+		
+
+		<div class="row">
+			<div class="col-3"></div>			
+			<!--<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>-->
+			<button class="link form-btn col-6 black">Create</button>
+		</div>
+		<div class="row">
+		<div class="col-3"></div>
+		<div class="color-sucess">New vote: Vote for CSSS Prescident is created succesively. </div>
+	</div>
+	</form>
+</body>
+</html>
