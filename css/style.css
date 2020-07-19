@@ -6,7 +6,7 @@
 @media screen and (min-width: 600px)
 {
  body{
-	background-image: linear-gradient(rgba(100,100,100,0.7),rgba(100,100,100,0.7)),
+	background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)),
 	 url("https://images.freeimages.com/images/large-previews/fec/sunset-rays-1391805.jpg");
 	 background-size: 100%;
 	 background-repeat: no-repeat;
@@ -82,7 +82,7 @@ body {
 .form-error{
 	color: red;
 	padding-left: 10px;
-	font-size: 80%;
+	text-shadow: 1px 1px white;
 }
 
 .form-instruction{
