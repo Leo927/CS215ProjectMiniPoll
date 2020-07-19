@@ -3,6 +3,15 @@
 	//border: 1px solid black;
 }
 
+@media screen and (min-width: 600px)
+{
+ body{
+	background-image: linear-gradient(rgba(100,100,100,0.7),rgba(100,100,100,0.7)),
+	 url("https://images.freeimages.com/images/large-previews/fec/sunset-rays-1391805.jpg");
+	 background-size: 100%;
+	 background-repeat: no-repeat;
+}
+}
 
 body {
   margin: 0;
@@ -179,8 +188,12 @@ body {
 	margin-bottom: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	background-color: white;
 }
 
+.info-card:hover{
+	background-color: azure;
+}
 
 .text-right{
 	text-align: right;
