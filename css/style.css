@@ -6,8 +6,7 @@
 @media screen and (min-width: 600px)
 {
  body{
-	background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)),
-	 url("https://images.freeimages.com/images/large-previews/fec/sunset-rays-1391805.jpg");
+ 	background-color: rgba(0,0,0,0.1);
 	 background-size: 100%;
 	 background-repeat: no-repeat;
 }
@@ -21,12 +20,14 @@ body {
 .topnav {
   overflow: hidden;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
+	background-color: white;
 }
 
 .topnav *{
 	margin:0px 0px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+
 }
 
 
@@ -67,6 +68,7 @@ body {
 	text-align: left;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	Place-items:center;
 }
 
 .form-label{
@@ -117,6 +119,10 @@ body {
 }
 
 
+
+.hidden{
+	visibility: hidden;
+}
 
 .black,
 .black:visited,
@@ -333,7 +339,26 @@ body {
 	background: white;
 }
 
+.border-2{
+	border:2px black solid;
+}
+
 .color-sucess,
 .color-sucess:visited{
 	color: DarkGreen;
+}
+
+.radio-image{
+	position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-image + img{
+	cursor: pointer;
+}
+
+.radio-image:checked + img{
+	outline: 2px solid #f00;
 }

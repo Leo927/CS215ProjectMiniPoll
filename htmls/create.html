@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script type="text/javascript" src="../js/formFunctions.js"></script>
+	  <script type="text/javascript" src="../js/createPoll.js"></script>
 </head>
 <body>
 	<nav class="topnav">
@@ -29,11 +31,11 @@
 	</header>
 	<div class="row">
 		<div class="col-3"></div>
-		<div class="color-sucess">New vote: Vote for CSSS Prescident is created succesively. </div>
+		<div class="color-sucess succcess-message hidden">New vote: Vote for CSSS Prescident is created succesively. </div>
 	</div>
 
 
-	<form class="form">		
+	<form class="form" id="createPollForm">		
 		<div class="form-entry">
 			<div class="row">
 				<div class="col-3"></div>
@@ -42,8 +44,8 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="text" name="title" id="title"/>
-				<p class="form-error col-3"></p>
-			</div>				
+				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
+			</div>
 		</div>
 
 		<div class="form-entry">
@@ -54,7 +56,7 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="Date" name="openDate" id="openDate"/>
-				<p class="form-error col-3"></p>
+				<p class="form-error col-3 hidden">Must be a properDate</p>
 			</div>				
 		</div>
 
@@ -66,7 +68,7 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="Date" name="closeDate" id="closeDate"/>
-				<p class="form-error col-3"></p>
+				<p class="form-error col-3 hidden">Must be a properDate</p>
 			</div>				
 		</div>
 
@@ -78,21 +80,21 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<textarea class="form-input col-6" rows="3" name="question" id="question"></textarea> 
-				<p class="form-error col-3"></p>
+				<p class="form-error col-3 hidden">Must be 1 to 100 characters long</p>
 			</div>				
 		</div>
 		
 		
-
+		<div id="answerContainer">
 		<div class="form-entry">
 			<div class="row">
 				<div class="col-3"></div>
-				<label class="form-label col-4" for="answer1">Answer 1</label>
+				<label class="form-label col-4" for="answer1">Answer 1</label>				
 			</div>
 			<div class="row">
 				<div class="col-3 text-right"></div>
-				<textarea class="form-input col-6" rows="3" name="answer1" id="answer1"></textarea> 
-				<p class="form-error col-3"></p>
+				<textarea class="form-input col-6 answer" rows="3" name="answer1" id="answer1"></textarea> 
+				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
 			</div>				
 		</div>
 
@@ -103,24 +105,25 @@
 			</div>
 			<div class="row">
 				<div class="col-3 text-right"></div>
-				<textarea class="form-input col-6" rows="3" name="answer2" id="answer2"></textarea> 
-				<p class="form-error col-3"></p>
+				<textarea class="form-input col-6 answer" rows="3" name="answer2" id="answer2"></textarea> 
+				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
 			</div>				
+		</div>
 		</div>
 		<div class="row">
 			<div class="col-3"></div>
-			<i class="link far fa-plus-square fa-5x"></i>
+			<i class="link far fa-plus-square fa-5x col-3" id="addAnswer"></i>
+			<p class="form-error col-3 hidden">Maximum 5 answers</p>
 		</div>
 		
 
 		<div class="row">
 			<div class="col-3"></div>			
-			<!--<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>-->
-			<button class="link form-btn col-6 black">Create</button>
+			<input type="submit" class="link form-btn col-6 black" name="singup" value="Sign Up"/>
 		</div>
 		<div class="row">
 		<div class="col-3"></div>
-		<div class="color-sucess">New vote: Vote for CSSS Prescident is created succesively. </div>
+		<div class="color-sucess succcess-message hidden">New vote: Vote for CSSS Prescident is created succesively. </div>
 	</div>
 	</form>
 </body>

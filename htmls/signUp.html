@@ -4,6 +4,8 @@
 	<title>CSSS Poll Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<script type="text/javascript" src="../js/formFunctions.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/radio-image.css">
 </head>
 <body>
 	<nav class="topnav">
@@ -11,13 +13,69 @@
 			<span class="nav-icon black">CSSS</span>
 			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
 		</a>
-		<a href="htmls/result.html" class="nav-icon link black">RESULTS</a>
+		<a href="result.html" class="nav-icon link black">RESULTS</a>
 	</nav>
 	<header class="mx-auto">
 		<h1 class="text-center">Sign Up</h1>	
 	</header>
 	
-	<form class="form">		
+	<form class="form" id="signUpForm">
+		<div class="form-entry row">
+			<div class="col-4"></div>
+			<div class="col-4">
+				<p class="form-label">Select An Avator</p>
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator1" checked>
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator2">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator3">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator4">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator5">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator6">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator7">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator8">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+				<label class="col-3">
+				  <input type="radio" name="avator" value="avator9">
+				  <img src="https://via.placeholder.com/50?text=Avator" alt="Avator"/>
+				</label>
+
+
+
+
+			</div>
+			<div class="col-4"></div>
+			
+		</div>		
 		<div class="form-entry">
 			<div class="row">
 				<div class="col-4"></div>
@@ -25,8 +83,8 @@
 			</div>
 			<div class="row">
 				<div class="col-4 text-right"></div>
-				<input class="form-input input-error col-4" type="email" name="email" id="email"/>
-				<p class="form-error col-4">Incorrect Email Format</p>
+				<input class="form-input col-4" type="email" name="email" id="email"/>
+				<p class="form-error col-4 hidden">Incorrect Email Format</p>
 			</div>				
 		</div>
 
@@ -37,8 +95,8 @@
 			</div>
 			<div class="row">
 				<div class="col-4">2 characters or more, no special character</div>
-				<input class="form-input input-error col-4" type="text" name="screenName" id="screenName"/>
-				<p class="form-error col-4">Incorrect Screen Name Format</p>
+				<input class="form-input col-4" type="text" name="screenName" id="screenName"/>
+				<p class="form-error col-4 hidden">Incorrect Screen Name Format</p>
 			</div>				
 		</div>
 		
@@ -50,7 +108,7 @@
 			<div class="row">
 				<div class="col-4">8 characters or more, no special characters</div>
 				<input class="form-input col-4" type="password" name="password" id="password"/>
-				<p hidden="true" class="form-error col-4">Incorrect Password Format</p>
+				<p  class="form-error col-4 hidden">Incorrect Password Format</p>
 			</div>				
 		</div>
 
@@ -61,19 +119,18 @@
 			</div>
 			<div class="row">
 				<div class="col-4"></div>
-				<input class="form-input col-4" type="password" name="password" id="password"/>
-				<p hidden="true" class="form-error col-4">Passwords Don't Match</p>
+				<input class="form-input col-4" type="password" name="repeatPassword" id="repeatPassword"/>
+				<p  class="form-error col-4 hidden">Passwords Don't Match</p>
 			</div>				
 		</div>
 
 		<div class="row">
 			<div class="col-4"></div>
-			<a class="link" href="management.html">
-					<p class="form-btn col-4 black">Sign Up</p>
-			</a>
-			<!--<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>-->
+			
+			<input type="submit" class="col-4 form-btn" name="singup" value="Sign Up"/>
 		</div>
 
 	</form>
+	<script type="text/javascript" src="../js/signUp.js"></script>
 </body>
 </html>
