@@ -25,5 +25,9 @@ function checkLogin(event)
 	var isOK = true;
 	isOK = isOK& checkEmail(event);
 	isOK = isOK& checkPassword(event);
+	if(isOK){
+		event.preventDefault();
+		window.location.href ="htmls/management.html"
+	}
 	return isOK;
 }
