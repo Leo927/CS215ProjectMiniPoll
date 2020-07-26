@@ -16,8 +16,8 @@ function checkPassword(event)
 	const passwordRegex = /^.{8,}$/;
 	var field = document.getElementById("password");
 	var isOK = true;
-	isOK&=/^\S{8,}$/.test(field.value);
-	return checkField(document.getElementById("password"), passwordRegex, event);
+	isOK&=/^[^\s]{8,}$/.test(field.value);
+	return checkField(document.getElementById("password"), passwordRegex, event, isOK);
 }
 
 function checkLogin(event)
