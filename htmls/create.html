@@ -4,9 +4,11 @@
 	<title>CSSS Poll Create Poll</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <script type="text/javascript" src="../js/formFunctions.js"></script>
-	  <script type="text/javascript" src="../js/createPoll.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="../js/formFunctions.js"></script>
+	<script type="text/javascript" src="../js/charCount.js"></script>
+	<script type="text/javascript" src="../js/createPoll.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/charCount.css">
 </head>
 <body>
 	<nav class="topnav">
@@ -44,7 +46,7 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="text" name="title" id="title"/>
-				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
+				<p class="form-error col-3 hidden" id="title_msg">Must be 1 to 50 characters long</p>
 			</div>
 		</div>
 
@@ -56,7 +58,7 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="Date" name="openDate" id="openDate"/>
-				<p class="form-error col-3 hidden">Must be a properDate</p>
+				<p class="form-error col-3 hidden" id="openDate_msg">Must be a properDate</p>
 			</div>				
 		</div>
 
@@ -68,7 +70,7 @@
 			<div class="row">
 				<div class="col-3 text-right"></div>
 				<input class="form-input col-6" type="Date" name="closeDate" id="closeDate"/>
-				<p class="form-error col-3 hidden">Must be a properDate</p>
+				<p class="form-error col-3 hidden" id="closeDate_msg">Must be a properDate</p>
 			</div>				
 		</div>
 
@@ -79,42 +81,36 @@
 			</div>
 			<div class="row">
 				<div class="col-3 text-right"></div>
-				<textarea class="form-input col-6" rows="3" name="question" id="question"></textarea> 
-				<p class="form-error col-3 hidden">Must be 1 to 100 characters long</p>
+				<div class="col-6 textarea pad-0">
+					<textarea class="form-input" rows="3" name="question" id="question"></textarea> 
+					<p class="char-count mr-0">char:
+						<span id="question_count">
+							0
+						</span>
+						<span>
+							/100
+						</span>
+					</p>
+				</div>
+				<p class="form-error col-3 hidden" id="question_msg">Must be 1 to 100 characters long</p>
 			</div>				
 		</div>
 		
 		
-		<div id="answerContainer">
-		<div class="form-entry">
-			<div class="row">
-				<div class="col-3"></div>
-				<label class="form-label col-4" for="answer1">Answer 1</label>				
-			</div>
-			<div class="row">
-				<div class="col-3 text-right"></div>
-				<textarea class="form-input col-6 answer" rows="3" name="answer1" id="answer1"></textarea> 
-				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
-			</div>				
-		</div>
+		<div id="answerContainer"></div>
 
-		<div class="form-entry">
-			<div class="row">
-				<div class="col-3"></div>
-				<label class="form-label col-4" for="answer2">Answer 2</label>
-			</div>
-			<div class="row">
-				<div class="col-3 text-right"></div>
-				<textarea class="form-input col-6 answer" rows="3" name="answer2" id="answer2"></textarea> 
-				<p class="form-error col-3 hidden">Must be 1 to 50 characters long</p>
-			</div>				
-		</div>
-		</div>
 		<div class="row">
 			<div class="col-3"></div>
-			<i class="link far fa-plus-square fa-5x col-3" id="addAnswer"></i>
-			<p class="form-error col-3 hidden">Maximum 5 answers</p>
+			<p class="col-3">
+			<i class="link far fa-plus-square fa-5x" id="addAnswer"></i>
+			<span class="form-error hidden" id="maxAnswerMsg">Max 5 answers</span>
+			</p>
+			<p class="col-3">
+			<i class="far fa-minus-square fa-5x link" id="removeAnswer"></i>			
+			<span class="form-error hidden" id="minAnswerMsg">Min 2 answers</span>
+			</p>
 		</div>
+
 		
 
 		<div class="row">
@@ -122,9 +118,11 @@
 			<input type="submit" class="link form-btn col-6 black" name="singup" value="Sign Up"/>
 		</div>
 		<div class="row">
-		<div class="col-3"></div>
-		<div class="color-sucess succcess-message hidden">New vote: Vote for CSSS Prescident is created succesively. </div>
-	</div>
+			<div class="col-3"></div>
+			<div class="color-sucess succcess-message hidden">New vote: Vote for CSSS Prescident is created succesively. </div>
+		</div>
 	</form>
+
+	
 </body>
 </html>

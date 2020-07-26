@@ -3,7 +3,7 @@
 	//border: 1px solid black;
 }
 
-@media screen and (min-width: 600px)
+@media  only screen and (min-width: 640px)
 {
  body{
  	background-color: rgba(0,0,0,0.1);
@@ -158,10 +158,14 @@ body {
 
 @media only screen and (min-width: 640px)
 {
-	.col-2, .col-3, .col-4, .col-6, .col-12{
+	.col-1 .col-2, .col-3, .col-4, .col-6, .col-12{
 		float: left;
 		padding: 1.04166666%;
 		width: 100%;
+	}
+
+	.col-1{
+		width: 8.33%;
 	}
 
 	.col-2{
@@ -361,4 +365,37 @@ body {
 
 .radio-image:checked + img{
 	outline: 2px solid #f00;
+}
+
+
+
+@media  only screen and (min-width: 640px){
+	.textarea{
+	position: relative;
+}
+.textarea .textarea-count{
+	position: relative;
+	display: inline;
+	bottom: 5px;
+	right: 30px;
+	text-align: left;
+}
+}
+
+@media  only screen and (max-width: 639px){
+.textarea{
+	position: relative;
+}
+.textarea{
+	display: block;
+	position: relative;
+}
+}
+
+.mr-0{
+	margin: 0 !important;
+}
+
+.pad-0{
+	padding: 0 !important;
 }

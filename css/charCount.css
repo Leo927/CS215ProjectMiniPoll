@@ -1,0 +1,10 @@
+
+.char-count{
+	position: absolute;
+	bottom: 8px;
+	color: #ccc;
+	float: right;
+	display: inline-block;
+	right: 15px;
+	text-align: right;
+}
