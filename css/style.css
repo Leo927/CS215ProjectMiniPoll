@@ -158,7 +158,7 @@ body {
 
 @media only screen and (min-width: 640px)
 {
-	.col-1 .col-2, .col-3, .col-4, .col-6, .col-12{
+	.col-1, .col-2, .col-3, .col-4, .col-6, .col-12{
 		float: left;
 		padding: 1.04166666%;
 		width: 100%;

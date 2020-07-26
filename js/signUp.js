@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(event){
 		console.log("adding event handlers");
 		document.getElementById("signUpForm").addEventListener("submit", checkLogin,false);
-		document.getElementById("email").addEventListener("change",checkEmail,false);
-		document.getElementById("password").addEventListener("change",checkPassword,false);
-		document.getElementById("screenName").addEventListener("change",checkScreenName,false);
-		document.getElementById("repeatPassword").addEventListener("change",checkRepeatPassword,false);
+		document.getElementById("email").addEventListener("blur",checkEmail,false);
+		document.getElementById("password").addEventListener("blur",checkPassword,false);
+		document.getElementById("screenName").addEventListener("blur",checkScreenName,false);
+		document.getElementById("repeatPassword").addEventListener("blur",checkRepeatPassword,false);
 });
 
 function checkEmail(event)
@@ -17,20 +17,29 @@ function checkEmail(event)
 
 function checkPassword(event)
 {
-	const passwordRegex = /^.{8,}$/;
-	return checkField(document.getElementById("password"), passwordRegex, event);
+	const passwordRegex = /^.{8}$/;
+	var field = document.getElementById("password");
+	var isOK =true;
+	isOK&= (/[\W\d]+/.test(field.value));
+	return checkField(field, passwordRegex, event, isOK);
 }
 
 function checkScreenName(event)
 {
-	const screenNameRegex = /^.{2,}$/;
-	return checkField(document.getElementById("screenName"), screenNameRegex, event);
+	var field = document.getElementById("screenName");
+	const screenNameRegex = /^.{1,}$/;
+	var isOK =true;
+	isOK&= !(/\s/.test(field.value));
+	isOK&= !(/\W/.test(field.value));
+	return checkField(document.getElementById("screenName"), screenNameRegex, event, isOK);
 }
 
 function checkRepeatPassword(event)
 {
-	const passwordRegex = /^.{8,}$/;
-	return checkField(document.getElementById("repeatPassword"), passwordRegex, event);
+	const passwordRegex = /./;
+	var repeatPassword = document.getElementById("repeatPassword");
+	var password = document.getElementById("password");
+	return checkField(repeatPassword, passwordRegex, event, repeatPassword.value == password.value);
 }
 
 function checkAvator(event)

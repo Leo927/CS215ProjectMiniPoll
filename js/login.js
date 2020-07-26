@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(event){
 		console.log("adding event handlers");
 		document.getElementById("loginForm").addEventListener("submit", checkLogin,false);
-		document.getElementById("email").addEventListener("change",checkEmail,false);
-		document.getElementById("password").addEventListener("change",checkPassword,false);
+		document.getElementById("email").addEventListener("blur",checkEmail,false);
+		document.getElementById("password").addEventListener("blur",checkPassword,false);
 });
 
 function checkEmail(event)
@@ -13,7 +13,10 @@ function checkEmail(event)
 
 function checkPassword(event)
 {
-	const passwordRegex = /^.{8,}$/
+	const passwordRegex = /^.{8,}$/;
+	var field = document.getElementById("password");
+	var isOK = true;
+	isOK&=/^\S{8,}$/.test(field.value);
 	return checkField(document.getElementById("password"), passwordRegex, event);
 }
 

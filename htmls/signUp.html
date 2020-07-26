@@ -84,7 +84,7 @@
 			<div class="row">
 				<div class="col-4 text-right"></div>
 				<input class="form-input col-4" type="email" name="email" id="email"/>
-				<p class="form-error col-4 hidden">Incorrect Email Format</p>
+				<p class="form-error col-4 hidden" id="email_msg">Incorrect Email Format</p>
 			</div>				
 		</div>
 
@@ -94,9 +94,9 @@
 				<label class="form-label col-4" for="screenName">Screen Name</label>
 			</div>
 			<div class="row">
-				<div class="col-4">2 characters or more, no special character</div>
+				<div class="col-4">no spaces or other non-word characters</div>
 				<input class="form-input col-4" type="text" name="screenName" id="screenName"/>
-				<p class="form-error col-4 hidden">Incorrect Screen Name Format</p>
+				<p class="form-error col-4 hidden" id="screenName_msg">Incorrect Screen Name Format</p>
 			</div>				
 		</div>
 		
@@ -106,9 +106,9 @@
 				<label class="form-label col-4" for="password">Password</label>
 			</div>
 			<div class="row">
-				<div class="col-4">8 characters or more, no special characters</div>
+				<div class="col-4">8 characters long, at least one non-letter character</div>
 				<input class="form-input col-4" type="password" name="password" id="password"/>
-				<p  class="form-error col-4 hidden">Incorrect Password Format</p>
+				<p  class="form-error col-4 hidden" id="password_msg">Incorrect Password Format</p>
 			</div>				
 		</div>
 
@@ -120,7 +120,7 @@
 			<div class="row">
 				<div class="col-4"></div>
 				<input class="form-input col-4" type="password" name="repeatPassword" id="repeatPassword"/>
-				<p  class="form-error col-4 hidden">Passwords Don't Match</p>
+				<p  class="form-error col-4 hidden" id="repeatPassword_msg">Passwords Don't Match</p>
 			</div>				
 		</div>
 
