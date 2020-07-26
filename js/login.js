@@ -27,7 +27,7 @@ function checkLogin(event)
 	isOK = isOK& checkPassword(event);
 	if(isOK){
 		event.preventDefault();
-		window.location.href ="htmls/management.html"
+		window.location.href ="management.html";
 	}
 	return isOK;
 }

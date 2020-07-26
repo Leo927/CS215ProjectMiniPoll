@@ -60,5 +60,9 @@ function checkLogin(event)
 	isOK = isOK& checkScreenName(event);
 	isOK = isOK& checkRepeatPassword(event);
 	isOK = isOK& checkAvator(event);
+	if(isOK){
+		event.preventDefault();
+		window.location.href ="htmls/management.html";
+	}
 	return isOK;
 }
