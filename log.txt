@@ -1,0 +1,4 @@
+name:Songhao Li
+student number: 200347094
+class number: CS215-072
+URL:http://www2.cs.uregina.ca/~li725/CS215ProjectMiniPoll/index.html
