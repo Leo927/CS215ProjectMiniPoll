@@ -1,6 +1,0 @@
-Name: Songhao Li
-Student number: 200347094
-class number: CS 215- 072
-username:li725
-password:!Qaz4839519
-mysql password:110120

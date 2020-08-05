@@ -1,3 +1,4 @@
+
 INSERT INTO Users (screenName, email, password, avatarURL)
 VALUE ("Second Test", "second@uregina.ca", "123456789", "http://via.placeholder/50");
 
