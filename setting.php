@@ -1,3 +1,3 @@
 <?php 
-	define("ROOT_PATH", "C:\Program Files\Ampps\www\CS215ProjectMiniPoll");
+	define("ROOT_PATH", "/home/hercules/l/li725/public_html");
  ?>

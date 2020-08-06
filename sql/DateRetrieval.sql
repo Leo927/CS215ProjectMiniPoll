@@ -5,7 +5,7 @@ Order By Polls.createDate DESC
 LIMIT 5;
 
 --b.
-SELECT userId, screenName, avatarURL FROM Users 
+SELECT userId, screenName, avatarURL, birthday FROM Users 
 WHERE email = "Bella@uregina.ca" And password = "123456789";
 
 SELECT Votes.answerId, COUNT(Answers.answerId) FROM Answers

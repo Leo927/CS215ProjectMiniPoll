@@ -5,7 +5,8 @@ CREATE TABLE Users(
 	screenName nvarchar(50) NOT NULL, 
 	email varchar(200) NOT NULL,
 	password varchar(32) NOT NULL,
-	avatarURL varchar(2083) NOT NULL
+	avatarURL varchar(2083) NOT NULL, 
+	birthday date NOT NULL
 );
 
 CREATE TABLE Polls(

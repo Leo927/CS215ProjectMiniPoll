@@ -51,6 +51,10 @@ function checkAvator(event)
 	}
 	return isSelected;
 }
+function checkBirthday(event)
+{
+	return checkDateField(document.getElementById("birthday"), event);
+}
 
 function checkLogin(event)
 {	
@@ -60,6 +64,7 @@ function checkLogin(event)
 	isOK = isOK& checkScreenName(event);
 	isOK = isOK& checkRepeatPassword(event);
 	isOK = isOK& checkAvator(event);
+	isOK &= checkBirthday(event);
 	if(isOK){
 		event.preventDefault();
 		window.location.href ="htmls/management.html";

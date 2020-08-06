@@ -1,3 +1,19 @@
+<?php 
+	define("ROOT_PATH", "/home/hercules/l/li725/public_html/");
+
+	if(isset($_GET['username']) && $_GET['username']!="")
+	{
+		checkLogin($_GET['username'], $_GET['password']);
+	}
+
+	function checkLogin($username, $password)
+	{
+		require_once ROOT_PATH."php/security.php";
+		$username = htmlentities(string:string, int:quote_style=2, ?string:encoding=null, bool:double_encode=true)
+	}
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
