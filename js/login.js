@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		document.getElementById("loginForm").addEventListener("submit", checkLogin,false);
 		document.getElementById("email").addEventListener("blur",checkEmail,false);
 		document.getElementById("password").addEventListener("blur",checkPassword,false);
-});
+});	
 
 function checkEmail(event)
 {
@@ -25,9 +25,6 @@ function checkLogin(event)
 	var isOK = true;
 	isOK = isOK& checkEmail(event);
 	isOK = isOK& checkPassword(event);
-	if(isOK){
-		event.preventDefault();
-		window.location.href ="management.html";
-	}
+	console.log("login format validated");
 	return isOK;
 }

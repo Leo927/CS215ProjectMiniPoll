@@ -43,13 +43,9 @@ function checkRepeatPassword(event)
 }
 
 function checkAvator(event)
-{
-	var isSelected = event.target.avator.value!=null;
-	if(isSelected)
-	{
-		console.log("avator selected is: "+event.target.avator.value);
-	}
-	return isSelected;
+{	
+	var avator = document.getElementById("avator");
+	return checkField(avator, /./, event, document.getElementById("avator").files.length > 0);
 }
 
 function checkLogin(event)
@@ -60,9 +56,5 @@ function checkLogin(event)
 	isOK = isOK& checkScreenName(event);
 	isOK = isOK& checkRepeatPassword(event);
 	isOK = isOK& checkAvator(event);
-	if(isOK){
-		event.preventDefault();
-		window.location.href ="htmls/management.html";
-	}
 	return isOK;
 }

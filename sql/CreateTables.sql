@@ -5,7 +5,8 @@ CREATE TABLE Users(
 	screenName nvarchar(50) NOT NULL, 
 	email varchar(200) NOT NULL,
 	password varchar(32) NOT NULL,
-	avatarURL varchar(2083) NOT NULL
+	avatarURL varchar(2083) NOT NULL,
+	birthday date NOT NULL
 );
 
 CREATE TABLE Polls(
@@ -14,7 +15,8 @@ CREATE TABLE Polls(
 	createDate timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	openDate timestamp NOT NULL,
 	closeDate timestamp NOT NULL,
-	question nvarchar(100) NOT NULL	
+	question nvarchar(100) NOT NULL,
+	lastVoteDate timestamp
 );
 
 CREATE TABLE Answers(

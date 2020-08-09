@@ -78,23 +78,13 @@ function getAnswerCount()
 
 function checkCreatePollForm(event)
 {
-	event.preventDefault();
 	var isOK = true;
 	isOK&=checkTitle(event);
 	isOK&=checkOpenDate(event);
 	isOK&=checkCloseDate(event);
 	isOK&=checkQuestion(event);
 	isOK&=checkAllAnswers(event);
-	if(isOK){
-		var successMsgs =  document.getElementsByClassName("succcess-message");
-		for (var i = successMsgs.length - 1; i >= 0; i--) {
-			successMsgs[i].classList.remove("hidden");
-		}
-		resetForm();
-	}
-	else{
-
-	}
+	
 	return isOK;
 }
 

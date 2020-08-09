@@ -38,6 +38,8 @@ LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 WHERE Polls.pollId = 2;
 
+
+--subquery to find pulls that are associated to a userId
 SELECT *, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 LEFT JOIN Votes ON Answers.answerId = Votes.answerId
@@ -46,6 +48,12 @@ WHERE Polls.pollId IN
 LEFT JOIN Votes ON Users.userId = Votes.userId
 LEFT JOIN Answers ON Votes.answerId = Answers.answerId
 WHERE Users.userId = 3)
+GROUP BY Answers.answerId;
+
+--find all pulls
+SELECT Polls.pollId, createDate,openDate,closeDate,question,lastVoteDate, Answers.answerId, answerString, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
+LEFT JOIN Answers ON Polls.pollId = Answers.pollId
+LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 GROUP BY Answers.answerId;
 
 --c. add most recent vote date to the above query
@@ -100,3 +108,10 @@ Answers.answerId,Answers.answerString , IF(Votes.userId IS NULL, 0, COUNT(Answer
 	WHERE Polls.pollId = 2
 	GROUP BY Answers.answerId
 ) as A;
+
+
+--Find the answerId given userId and pollId
+SELECT Votes.answerId FROM Votes
+LEFT JOIN Answers ON Votes.answerId = Answers.answerId
+LEFT JOIN Polls ON Answers.pollId = Polls.pollId
+WHERE Polls.pollId = 1 AND Votes.userId = 2;
