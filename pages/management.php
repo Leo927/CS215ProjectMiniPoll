@@ -1,7 +1,10 @@
 <?php 
-require_once  ROOT_PATH."php/reuse/debug.php";
-require_once  ROOT_PATH."php/reuse/dbaccess.php";
-require ROOT_PATH."php/reuse/user_control.php";
+require_once ROOT_PATH."php/reuse/dbaccess.php";
+require_once ROOT_PATH."php/reuse/form_field.php";
+require_once ROOT_PATH."php/reuse/security.php";
+require_once ROOT_PATH."php/reuse/debug.php";
+require_once ROOT_PATH."php/reuse/user_control.php";
+require_once ROOT_PATH."php/reuse/exception_handling.php";
 
 prevent_visiter();
 
@@ -11,9 +14,10 @@ prevent_visiter();
 function show_polls()
 {
 	$polls = get_polls();
-
+	
 	foreach ($polls as $pollId => $poll) {
-		//$userVote = get_user_vote($_SESSION['user']['userId'], $pollId);
+		$userVote = get_user_vote($_SESSION['user']['userId'], $pollId);
+		
 		?>
 		<div class="info-card link row">
 			<a class="black" href="vote.php?pollId=<?=$pollId?>">
@@ -44,6 +48,7 @@ function show_polls()
 							<span>
 								<span class="graph-bar" style="width: <?=$answer['voteCount']/$totalVote*100-1 ?>%;"></span>
 								<span class=""><?=$answer['voteCount']?></span>
+								<?php if(isset($userVote) && $answerId==$userVote) echo "<i class='fas fa-user-check'></i>" ?>
 							</span>
 						</li>
 						

@@ -20,11 +20,11 @@ INSERT INTO Users (screenName, email, password, avatarURL, birthday)
 VALUE ("Liberty", "Liberty@uregina.ca", "123456789", "http://via.placeholder.com/50", "1992-05-15");
 
 
-INSERT INTO Polls (title, openDate, closeDate, question)
-VALUE ("CSSS President", "2020-07-30 23:59:59", "2020-08-30 00:59:59", "Please select the next president for CSSS");
+INSERT INTO Polls (title, openDate, closeDate, question, creatorId)
+VALUE ("CSSS President", "2020-07-30 23:59:59", "2020-08-30 00:59:59", "Please select the next president for CSSS", 1);
 
-INSERT INTO Polls (title, openDate, closeDate, question)
-VALUE ("CSSS VicePresident", "2020-08-15 23:59:59", "2020-09-30 00:59:59", "Please select the next vice president for CSSS");
+INSERT INTO Polls (title, openDate, closeDate, question, creatorId)
+VALUE ("CSSS VicePresident", "2020-08-15 23:59:59", "2020-09-30 00:59:59", "Please select the next vice president for CSSS", 3);
 
 
 

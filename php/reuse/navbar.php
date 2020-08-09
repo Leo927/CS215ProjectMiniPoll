@@ -8,6 +8,7 @@ function load_navbar()
 			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
 		</a>
 		<?
+		session_start();
 		if (isset($_SESSION['user'])) {
 			?>
 				<a href="<?=ROOT_URI."pages/"?>create.php" class="nav-icon link black">CREATE</a>

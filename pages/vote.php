@@ -1,62 +1,131 @@
+<?php 
+require_once  ROOT_PATH."php/reuse/debug.php";
+require_once  ROOT_PATH."php/reuse/dbaccess.php";
+require_once ROOT_PATH."php/reuse/user_control.php";
+require_once ROOT_PATH."php/reuse/exception_handling.php";
+
+session_start();
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+	handle_submit();
+}
+
+
+function load_poll()
+{
+
+	if(!($_SERVER["REQUEST_METHOD"] == "GET"))
+	{
+
+		return;
+	}
+
+
+if(isset($_SESSION['user']) && get_user_vote($_SESSION['user']['userId'], $_GET['pollId']))
+{		
+	handle_error("you have already voted");
+}
+
+	$poll = get_poll_by_id($_GET['pollId']);
+
+	if(!$poll)
+	{
+		header("Location: ". ROOT_URI);
+	}
+
+
+	$poll['pollId'] = $_GET['pollId'];
+	?>
+	<form class="mx-auto" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+		<div class="info-card black row">
+			<input type="hidden" name="pollId" id="pollId" value="<?=$_GET[pollId]?>">
+			<img class="avator" src="<?=$poll['avatarURL'] ?>" alt="avator of <?=$poll['screenName'] ?>"/>
+			<span class="user-name black">
+				<span>from</span>
+				<span><?=$poll['screenName'] ?></span>
+			</span>
+
+			<div class="text-right grey">
+				<span>Closing on </span>
+				<span><?=$poll['closeDate'] ?></span>
+			</div>
+			<p class="row">
+				<?=$poll['question'] ?>
+			</p>
+			<?php 
+			foreach ($poll['answers'] as $answerId => $answer) {
+				?>
+				<label class="option-container"><?=$answer['answerString'] ?>
+				<input type="radio" checked="checked" name="answerId" value="<?=$answerId ?>">
+				<span class="checkmark"></span>
+			</label>
+			<?
+		}
+		?>
+
+
+
+
+		<?php if(isset($_SESSION['user']) ) 
+		echo "<input class='form-btn link' type='submit' value='Vote' name='Vote'>"; ?>
+	</div>		
+</form>
+<?php	
+
+}
+
+function handle_submit()
+{
+	
+	if(!isset($_SESSION['user']))
+	{
+		handle_error("Only user can vote. Please sign up first");
+		return;
+	}
+
+	if(get_user_vote($_SESSION['user']['userId'], $_POST['pollId']))
+	{
+		handle_error("You have already voted");
+		return;
+	}
+
+
+	add_vote($_POST['answerId'], $_SESSION['user']['userId']);
+
+	header("Location: ".ROOT_URI);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Vote for CSSS President</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 <body>
-	<nav class="topnav">
-		<a href="../index.html">
-			<span class="nav-icon black">CSSS</span>
-			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
-		</a>
-		<a href="create.html" class="nav-icon link black">CREATE</a>
-		<a href="management.html" class="nav-icon link black">MANAGE</a>
-		<a href="result.html" class="nav-icon link black">RESULTS</a>
-		
-		<span class="user-name float-right black">
-			<span>Hi</span>
-			<span>Leo</span>
-		</span>
-		<img class="avator float-right" src="https://via.placeholder.com/50" alt="avator of leo"/>
-		
-	</nav>
+	<?php
+	include_once  ROOT_PATH."php/reuse/navbar.php";
+	load_navbar();
+	?>
 	
 	<header class="mx-auto">
 		<h1 class="text-center">Vote for CSSS President</h1>	
 	</header>
 
-
-	<div class="mx-auto">
-		<div class="info-card black row">
-			<img class="avator" src="https://via.placeholder.com/50" alt="avator of leo"/>
-			<span class="user-name black">
-				<span>from</span>
-				<span>Leo</span>
-			</span>
-
-			<div class="text-right grey">
-				<span>Closing on </span>
-				<span>Aug 20, 2020</span>  
-			</div>
-			<p class="row">
-				Please select the person you would vote for to become the next president of CSSS.
-			</p>
-			<label class="option-container">Person A
-				<input type="radio" checked="checked" name="voteResult">
-				<span class="checkmark"></span>
-			</label>
-			<label class="option-container">Person B
-				<input type="radio" name="voteResult">
-				<span class="checkmark"></span>
-			</label>
-
-			<a class="link" href="result.html">
-				<p class="form-btn col-12 black">Vote</p>
-			</a>
-			<!--<input class="form-btn link" type="submit" value="Vote" name="Vote">-->
-		</div>		
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="color-sucess succcess-message"><?=$success  ?> </div>
 	</div>
+
+	<div class="row">
+		<div class="danger text-center"><?=$error  ?> </div>
+	</div>
+
+	<?php load_poll(); ?>
+	
 </body>
 </html>

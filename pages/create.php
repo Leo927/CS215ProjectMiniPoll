@@ -268,11 +268,11 @@ function handle_failed_poll_creation()
 
 		<div class="row">
 			<div class="col-3"></div>			
-			<input type="submit" class="link form-btn col-6 black" name="singup" value="Sign Up"/>
+			<input type="submit" class="link form-btn col-6 black" name="singup" value="Create"/>
 		</div>
 		<div class="row">
 			<div class="col-3"></div>
-			<div class="color-sucess succcess-message hidden">New vote: Vote for CSSS Prescident is created succesively. </div>
+			<div class="color-sucess succcess-message hidden"></div>
 		</div>
 	</form>
 

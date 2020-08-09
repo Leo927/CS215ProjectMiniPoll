@@ -16,7 +16,9 @@ CREATE TABLE Polls(
 	openDate timestamp NOT NULL,
 	closeDate timestamp NOT NULL,
 	question nvarchar(100) NOT NULL,
-	lastVoteDate timestamp
+	lastVoteDate timestamp,
+	creatorId int NOT NULL,
+	FOREIGN KEY(creatorId) REFERENCES Users(userId)
 );
 
 CREATE TABLE Answers(

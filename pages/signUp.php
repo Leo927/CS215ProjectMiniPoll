@@ -1,11 +1,15 @@
 <?php 
-require ROOT_PATH."php/reuse/dbaccess.php";
-require ROOT_PATH."php/reuse/form_field.php";
-require ROOT_PATH."php/reuse/security.php";
-require ROOT_PATH."php/reuse/debug.php";
+
+require_once ROOT_PATH."php/reuse/dbaccess.php";
+require_once ROOT_PATH."php/reuse/form_field.php";
+require_once ROOT_PATH."php/reuse/security.php";
+require_once ROOT_PATH."php/reuse/debug.php";
+require_once ROOT_PATH."php/reuse/user_control.php";
+require_once ROOT_PATH."php/reuse/exception_handling.php";
 define("TEMP_AVATOR_POSTFIX", "tempAvator___");
 define("AVATOR_PATH", "uploads/userAvator/");
 $error="";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	handle_signup();
@@ -79,13 +83,14 @@ function check_signup_info()
 
 function sanitize_input()
 {
-	/*$db = get_db();
+	
+	$db = get_db();
 	$_POST['email'] = mysql_entities_fix_string($db, $_POST['email']);
 	$_POST['screenName'] = mysql_entities_fix_string($db, $_POST['screenName']);
 	$_POST['password'] = mysql_entities_fix_string($db, $_POST['password']);
 	$_POST['birthday'] = mysql_entities_fix_string($db, $_POST['birthday']);
 	
-	$db->close();*/
+	$db->close();
 	return true;
 }
 
@@ -103,6 +108,7 @@ function handle_succesiveful_signup($user_id)
 	
 	header("Location: ".ROOT_URI);
 }
+
 ?>
 
 

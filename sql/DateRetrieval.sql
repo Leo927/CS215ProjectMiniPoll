@@ -115,3 +115,8 @@ SELECT Votes.answerId FROM Votes
 LEFT JOIN Answers ON Votes.answerId = Answers.answerId
 LEFT JOIN Polls ON Answers.pollId = Polls.pollId
 WHERE Polls.pollId = 1 AND Votes.userId = 2;
+
+--Find all info about a polll
+SELECT pollId, title, createDate, openDate, closeDate, question, lastVoteDate, creatorId, avatarURL, screenName
+		FROM Polls 
+		LEFT JOIN Users ON POlls.creatorId = Users.userId WHERE pollId = $pollId

@@ -1,3 +1,66 @@
+<?php 
+require_once  ROOT_PATH."php/reuse/debug.php";
+require_once  ROOT_PATH."php/reuse/dbaccess.php";
+require_once ROOT_PATH."php/reuse/user_control.php";
+function show_polls()
+{
+	$polls = get_polls();
+
+	foreach ($polls as $pollId => $poll) {
+		
+	
+		$creator = get_user_by_id($poll['creatorId']);
+		?>
+		<div class="info-card link row">
+			<a class="black" href="vote.php?pollId=<?=$pollId?>">
+				<div class="grey row">
+					<img class="avator" src="<?=$creator['avatarURL'] ?>" alt="avator of <?=$creator['screenName'] ?>" />
+					<span class="user-name black ">
+						<span>by</span>
+						<span><?=$creator['screenName'] ?></span>
+					</span>				
+				</div>
+				<h2 class="col-12 row">
+					<?=$poll['title']?>
+				</h2>
+				<p class="row">
+					<?=$poll['question']?>
+				</p>
+				<ul>
+					<?php
+
+					$totalVote = 0;
+					foreach ($poll['answers'] as $answerId => $answer) {
+						$totalVote+=$answer['voteCount'];
+					}
+
+					foreach ($poll['answers'] as $answerId => $answer) {
+						?>
+						
+						<li>
+							<div><?=$answer[answerString]?></div>
+							
+							<span>
+								<span class="graph-bar" style="width: <?=$answer['voteCount']/$totalVote*100-1 ?>%;"></span>
+								<span class=""><?=$answer['voteCount']?></span>
+							</span>
+						</li>
+						
+						<?
+					}
+					?>
+				</ul>
+				<div class="text-right grey"><span>Created On </span><span><?=$poll['createDate']?></span></div>
+			</a>
+			
+			
+		</div>
+	</div>
+	<?
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,93 +70,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<nav class="topnav">
-		<a href="../index.html">
-			<span class="nav-icon black">CSSS</span>
-			<img class="logo" src="https://via.placeholder.com/50" alt="logo"/>
-		</a>
-		<a href="create.html" class="nav-icon link black">CREATE</a>
-		<a href="management.html" class="nav-icon link black">MANAGE</a>
-		<a href="result.html" class="nav-icon link black">RESULTS</a>
-		
-		<span class="user-name black float-right">
-			<span>Hi</span>
-			<span>Leo</span>
-		</span>
-		<img class="avator float-right" src="https://via.placeholder.com/50" alt="avator of leo" />
-		
-	</nav>
+	<?php
+	include_once  ROOT_PATH."php/reuse/navbar.php";
+	load_navbar();
+	?>
 
 	<header class="mx-auto">
 		<h1 class="text-center">Vote Result</h1>	
 	</header>
 
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="color-sucess succcess-message"><?=$success  ?> </div>
+	</div>
 
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="danger"><?=$error  ?> </div>
+	</div>
+	
 	<div class="mx-auto">
-		<div class="info-card black row">
-			<div class="grey row">
-					<img class="avator" src="https://via.placeholder.com/50" alt="avator of leo" />
-					<span class="user-name black ">
-						<span>by</span>
-						<span>Leo</span>
-					</span>				
-			</div>
-			<h1 class="col-12 row">
-				Vote for CSSS President
-			</h1>
-			<p class="row">
-				Please select the person you would vote for to become the next president of CSSS.
-			</p>
-			<ul>
-				<li>
-					<div>answer 1 prentte this is a very long answer</div>
 
-					<span>
-						<span class="graph-bar" style="width: 66%;"></span>
-						<span class="">66</span>
-						<i class="fas fa-user-check"></i>
-					</span>
-				</li>
-				<li>
-					<div>answer 2</div>
-					<span class="graph-bar" style="width: 33%;"></span>
-					<span class="">33</span>
-				</li>
-			</ul>
-			<div class="text-right grey"><span>created on </span><span>July 16, 2020</span></div>
-		</div>
-		<div class="info-card black row">
-			<div class="grey row">
-					<img class="avator" src="https://via.placeholder.com/50" alt="avator of leo" />
-					<span class="user-name black ">
-						<span>by</span>
-						<span>Leo</span>
-					</span>				
-			</div>
-			<h1 class="col-12 row">
-				Vote for CSSS Vice President
-			</h1>
-			<p class="row">
-				Please select the person you would vote for to become the next vice president of CSSS.
-			</p>
-			<ul>
-				<li>
-					<div>answer 1 prentte this is a very long answer</div>
-
-					<span>
-						<span class="graph-bar" style="width: 66%;"></span>
-						<span class="">66</span>
-					</span>
-				</li>
-				<li>
-					<div>answer 2</div>
-					<span class="graph-bar" style="width: 33%;"></span>
-					<span class="">33</span>
-					<i class="fas fa-user-check"></i>
-				</li>
-			</ul>
-			<div class="text-right grey"><span>created on </span><span>July 16, 2020</span></div>
-		</div>
+		<?php
+		show_polls();
+		?>
+		
 	</div>
 </body>
 </html>
