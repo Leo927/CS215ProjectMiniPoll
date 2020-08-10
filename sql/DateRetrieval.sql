@@ -38,7 +38,11 @@ LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 WHERE Polls.pollId = 2;
 
-
+--
+SELECT pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId
+FROM Polls 
+ORDER BY createDate DESC
+LIMIT 5;
 --subquery to find pulls that are associated to a userId
 SELECT *, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 LEFT JOIN Answers ON Polls.pollId = Answers.pollId

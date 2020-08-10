@@ -21,10 +21,8 @@ if(isset($_SESSION['user']))
 
 function show_polls()
 {
-	$polls = get_polls();
-	
-	foreach ($polls as $pollId => $poll) {
-		
+	$polls = get_breif_polls(5);
+	while ($poll = $polls->fetch_assoc()) {
 		?>
 		<div class="info-card link row">
 			<a class="black" href="vote.php?pollId=<?=$pollId?>">
@@ -35,6 +33,9 @@ function show_polls()
 				<h2 class="col-12 row">
 					<?=$poll['title']?>
 				</h2>
+				<p class="row">
+					<?=$poll['question']?>
+				</p>
 			</a>			
 		</div>	
 		<?

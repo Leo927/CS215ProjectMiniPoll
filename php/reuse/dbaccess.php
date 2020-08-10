@@ -46,25 +46,26 @@ function get_user_vote($userId,$pollId)
 
 function get_polls()
 {
-	require ROOT_PATH.'php/reuse/db.php';
-	$db = new mysqli($hn, $un, $pw, $db);
-	if($db->connect_error)
-	{
-		wtf("Fatal Error ".$db->connect_error);
-		
-	}
+	
 	
 	
 	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, Answers.answerId, avatarURL, screenName, answerString, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 	LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 	LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 	LEFT JOIN Users ON Polls.creatorId = Users.userId
-	GROUP BY Answers.answerId;";
-	$result = $db->query($query);	
-	$db->close();	
+	GROUP BY Answers.answerId ";
+	$result = query($query);	
+	
 	return group_poll_info($result);	
 
 	
+}
+
+function get_breif_polls($limit)
+{
+	$query = "SELECT pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId FROM Polls ORDER BY closeDate DESC LIMIT $limit";
+	$result = query($query);
+	return $result;
 }
 
 function group_poll_info($result)
