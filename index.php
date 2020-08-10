@@ -1,5 +1,10 @@
 <?php
+require_once ROOT_PATH."php/reuse/dbaccess.php";
+require_once ROOT_PATH."php/reuse/form_field.php";
+require_once ROOT_PATH."php/reuse/security.php";
 require_once ROOT_PATH."php/reuse/debug.php";
+require_once ROOT_PATH."php/reuse/user_control.php";
+require_once ROOT_PATH."php/reuse/exception_handling.php";
 $email;
 $error;
 if(isset($_POST["submitted"]) && $_POST['submitted']==1)
@@ -14,7 +19,27 @@ if(isset($_SESSION['user']))
 }
 
 
-
+function show_polls()
+{
+	$polls = get_polls();
+	
+	foreach ($polls as $pollId => $poll) {
+		
+		?>
+		<div class="info-card link row">
+			<a class="black" href="vote.php?pollId=<?=$pollId?>">
+				<div class="text-right grey">
+					<span>Closing on </span>
+					<span><?=$poll['closeDate']?></span>  
+				</div>
+				<h2 class="col-12 row">
+					<?=$poll['title']?>
+				</h2>
+			</a>			
+		</div>	
+		<?
+	}	
+}
 
 
 
@@ -68,6 +93,7 @@ function check_login()
 	load_navbar();
 	?>
 
+	
 
 	<form class="form" id="loginForm" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">		
 		<div class="form-entry">
@@ -108,40 +134,7 @@ function check_login()
 	</form>
 
 	<div class="mx-auto">
-		<div class="info-card link row">
-			<a class="black" href="pages/vote.php">
-				<div class="row">
-					<div class="col-4"></div>
-					<div class="col-4"></div>
-					<div class="col-4 text-right grey">
-						<span>Closing on</span>
-						<span>Aug 20, 2020</span>  
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 t-1">
-						Vote for CSSS President
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="info-card link row">
-			<a class="black" href="pages/vote.php">
-				<div class="row">
-					<div class="col-4"></div>
-					<div class="col-4"></div>
-					<div class="col-4 text-right grey">
-						<span>Closing on</span>
-						<span>Aug 20, 2020</span>  
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 t-1">
-						Vote for CSSS Vice President
-					</div>
-				</div>
-			</a>
-		</div>
+		<?php show_polls(); ?>		
 	</div>
 
 	<script type="text/javascript" src="js/login.js"></script>

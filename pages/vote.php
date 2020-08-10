@@ -27,7 +27,6 @@ if(isset($_SESSION['user']) && get_user_vote($_SESSION['user']['userId'], $_GET[
 }
 
 	$poll = get_poll_by_id($_GET['pollId']);
-
 	if(!$poll)
 	{
 		header("Location: ". ROOT_URI);
@@ -89,10 +88,29 @@ function handle_submit()
 		return;
 	}
 
+	if(poll_closed(get_poll_by_id($_POST['pollId'])))
+	{
+		handle_error("The poll has expired");
+		return;
+	}
+
 
 	add_vote($_POST['answerId'], $_SESSION['user']['userId']);
 
 	header("Location: ".ROOT_URI);
+}
+
+function poll_closed($poll)
+{
+	if(!$poll)
+		return false;
+
+	$closeDate = new DateTime($poll['closeDate']);
+	$now = new DateTime('now');
+	$timeDiff = $now->diff($closeDate);
+	if($timeDiff->invert)
+		return true;
+	return false;
 }
 
 

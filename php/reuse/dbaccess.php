@@ -173,10 +173,10 @@ function update_user_avator_url($user_id, $new_url)
 	query($query);
 }
 
-function add_poll($title, $question, $openDate, $closeDate)
+function add_poll($title, $question, $openDate, $closeDate, $creatorId)
 {
-	$query = "INSERT INTO Polls (title, openDate, closeDate, question)
-	VALUE ('$title','$openDate','$closeDate','$question');";
+	$query = "INSERT INTO Polls (title, openDate, closeDate, question, creatorId)
+	VALUE ('$title','$openDate','$closeDate','$question', '$creatorId');";
 	
 
 	return insert($query);

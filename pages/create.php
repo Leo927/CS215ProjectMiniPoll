@@ -33,7 +33,7 @@ function check_create_poll()
 {		
 	if(!check_fields())
 		return false;
-	$pollId = add_poll($_POST['title'], $_POST['question'], $_POST['openDate'], $_POST['closeDate']);
+	$pollId = add_poll($_POST['title'], $_POST['question'], $_POST['openDate'], $_POST['closeDate'], $_SESSION['user']['userId']);
 	if(!$pollId)
 		return false;
 
