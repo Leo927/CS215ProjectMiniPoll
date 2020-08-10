@@ -97,7 +97,7 @@ function handle_submit()
 
 	add_vote($_POST['answerId'], $_SESSION['user']['userId']);
 
-	header("Location: ".ROOT_URI);
+	header("Location: ".ROOT_URI."pages/result.php?pollId=".$_POST['pollId']);
 }
 
 function poll_closed($poll)

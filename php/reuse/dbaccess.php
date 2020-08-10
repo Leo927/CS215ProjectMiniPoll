@@ -44,17 +44,22 @@ function get_user_vote($userId,$pollId)
 	return $row['answerId'];
 }
 
-function get_polls()
+function get_polls($userId)
 {
-	
+	$userIdString = ($userId?"WHERE creatorId = $userId":"");
 	
 	
 	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, Answers.answerId, avatarURL, screenName, answerString, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 	LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 	LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 	LEFT JOIN Users ON Polls.creatorId = Users.userId
-	GROUP BY Answers.answerId ";
+	"
+	.$userIdString."
+	GROUP BY Answers.answerId "
+	;
 	$result = query($query);	
+	if($result->num_rows<=0)
+		return false;
 	
 	return group_poll_info($result);	
 

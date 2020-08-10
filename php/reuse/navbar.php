@@ -17,7 +17,6 @@ function load_navbar()
 		}
 		?>
 		
-		<a href="<?=ROOT_URI."pages/"?>result.php" class="nav-icon link black">RESULTS</a>
 
 		<?php if(isset($_SESSION['user'])){ ?>
 		<a class="avator float-right" href="<?=ROOT_URI."pages/logout.php"?>"><i class="fas fa-sign-out-alt fa-2x"></i></a>

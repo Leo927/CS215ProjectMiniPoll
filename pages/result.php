@@ -4,15 +4,13 @@ require_once  ROOT_PATH."php/reuse/dbaccess.php";
 require_once ROOT_PATH."php/reuse/user_control.php";
 function show_polls()
 {
-	$polls = get_polls();
-
-	foreach ($polls as $pollId => $poll) {
-		
+	$pollId = $_GET['pollId'];
 	
+	$poll = get_poll_by_id($pollId);
+		
 		$creator = get_user_by_id($poll['creatorId']);
 		?>
-		<div class="info-card link row">
-			<a class="black" href="vote.php?pollId=<?=$pollId?>">
+		<div class="info-card row">
 				<div class="grey row">
 					<img class="avator" src="<?=$creator['avatarURL'] ?>" alt="avator of <?=$creator['screenName'] ?>" />
 					<span class="user-name black ">
@@ -50,14 +48,12 @@ function show_polls()
 					}
 					?>
 				</ul>
-				<div class="text-right grey"><span>Created On </span><span><?=$poll['createDate']?></span></div>
-			</a>
-			
+				<div class="text-right grey"><span>Created On </span><span><?=$poll['createDate']?></span></div>	
 			
 		</div>
 	</div>
 	<?
-}
+
 }
 ?>
 
