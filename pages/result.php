@@ -2,6 +2,7 @@
 require_once  ROOT_PATH."php/reuse/debug.php";
 require_once  ROOT_PATH."php/reuse/dbaccess.php";
 require_once ROOT_PATH."php/reuse/user_control.php";
+
 function show_polls()
 {
 	$pollId = $_GET['pollId'];

@@ -24,7 +24,6 @@ function show_polls()
 EOT;
 	}
 	foreach ($polls as $pollId => $poll) {
-		$userVote = get_user_vote($_SESSION['user']['userId'], $pollId);
 		?>
 		<div class="info-card row">
 			
@@ -54,8 +53,7 @@ EOT;
 							
 							<span>
 								<span class="graph-bar" style="width: <?=$answer['voteCount']/$totalVote*100-1 ?>%;"></span>
-								<span class=""><?=$answer['voteCount']?></span>
-								<?php if(isset($userVote) && $answerId==$userVote) echo "<i class='fas fa-user-check'></i>" ?>
+								<span class=""><?=$answer['voteCount']?></span>								
 							</span>
 						</li>
 						

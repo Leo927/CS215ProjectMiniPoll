@@ -31,8 +31,6 @@ CREATE TABLE Answers(
 CREATE TABLE Votes(
 	voteId int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
 	voteDate timestamp DEFAULT CURRENT_TIMESTAMP NOT NULL,
-	userId int NOT NULL, 
 	answerId int NOT NULL,
-	FOREIGN KEY(userId) REFERENCES Users(userId),
 	FOREIGN KEY(answerID) REFERENCES Answers(userId)
 );

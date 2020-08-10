@@ -16,20 +16,14 @@ function load_poll()
 
 	if(!($_SERVER["REQUEST_METHOD"] == "GET"))
 	{
-
 		return;
 	}
 
 
-if(isset($_SESSION['user']) && get_user_vote($_SESSION['user']['userId'], $_GET['pollId']))
-{		
-	handle_error("you have already voted");
-}
-
 	$poll = get_poll_by_id($_GET['pollId']);
 	if(!$poll)
 	{
-		header("Location: ". ROOT_URI);
+		//header("Location: ". ROOT_URI);
 	}
 
 
@@ -65,8 +59,7 @@ if(isset($_SESSION['user']) && get_user_vote($_SESSION['user']['userId'], $_GET[
 
 
 
-		<?php if(isset($_SESSION['user']) ) 
-		echo "<input class='form-btn link' type='submit' value='Vote' name='Vote'>"; ?>
+		<input class='form-btn link' type='submit' value='Vote' name='Vote'>
 	</div>		
 </form>
 <?php	
@@ -76,18 +69,6 @@ if(isset($_SESSION['user']) && get_user_vote($_SESSION['user']['userId'], $_GET[
 function handle_submit()
 {
 	
-	if(!isset($_SESSION['user']))
-	{
-		handle_error("Only user can vote. Please sign up first");
-		return;
-	}
-
-	if(get_user_vote($_SESSION['user']['userId'], $_POST['pollId']))
-	{
-		handle_error("You have already voted");
-		return;
-	}
-
 	if(poll_closed(get_poll_by_id($_POST['pollId'])))
 	{
 		handle_error("The poll has expired");

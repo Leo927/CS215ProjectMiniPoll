@@ -50,85 +50,84 @@ VALUE ("Sadie May ", 2);
 
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (1, 3);
+INSERT INTO Votes (answerId)
+VALUE (3);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 3) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (2, 3);
+INSERT INTO Votes (answerId)
+VALUE (3);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 3) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (3, 3);
+INSERT INTO Votes (answerId)
+VALUE (3);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 3) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (4, 2);
+INSERT INTO Votes (answerId)
+VALUE (2);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 2) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (5, 1);
+INSERT INTO Votes (answerId)
+VALUE (1);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 1) ;
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (6, 2);
+INSERT INTO Votes (answerId)
+VALUE (2);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 2) ;
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (7, 3);
+INSERT INTO Votes (answerId)
+VALUE (3);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 3) ;
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (2, 4);
+INSERT INTO Votes (answerId)
+VALUE (4);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 4) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (3, 4);
+INSERT INTO Votes (answerId)
+VALUE ( 4);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 4) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (4, 6);
+INSERT INTO Votes (answerId)
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 6) ;
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (5, 4);
+INSERT INTO Votes (answerId)
+VALUE (4);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 4) ;
 
-INSERT INTO Votes (userId, answerId)
-VALUE (6, 6);
+INSERT INTO Votes (answerId)
+VALUE ( 6);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 6) ;
 
 
-INSERT INTO Votes (userId, answerId)
-VALUE (7, 4);
+INSERT INTO Votes (answerId)
+VALUE (4);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 4) ;

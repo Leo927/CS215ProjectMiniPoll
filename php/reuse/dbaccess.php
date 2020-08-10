@@ -49,7 +49,7 @@ function get_polls($userId)
 	$userIdString = ($userId?"WHERE creatorId = $userId":"");
 	
 	
-	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, Answers.answerId, avatarURL, screenName, answerString, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
+	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, Answers.answerId, avatarURL, screenName, answerString, IF(Votes.answerId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 	LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 	LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 	LEFT JOIN Users ON Polls.creatorId = Users.userId
@@ -57,6 +57,7 @@ function get_polls($userId)
 	.$userIdString."
 	GROUP BY Answers.answerId "
 	;
+
 	$result = query($query);	
 	if($result->num_rows<=0)
 		return false;
@@ -93,7 +94,7 @@ function group_poll_info($result)
 
 function get_poll_by_id($pollId)
 {
-	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, avatarURL, screenName, Answers.answerId, answerString, IF(Votes.userId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
+	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, avatarURL, screenName, Answers.answerId, answerString, IF(Votes.answerId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 	LEFT JOIN Answers ON Polls.pollId = Answers.pollId
 	LEFT JOIN Votes ON Answers.answerId = Votes.answerId
 	LEFT JOIN Users ON Polls.creatorId = Users.userId
@@ -208,10 +209,10 @@ function add_answer($answerString, $pollId)
 	return insert($query);
 }
 
-function add_vote($answerId, $userId)
+function add_vote($answerId)
 {
-	$query1="INSERT INTO Votes (userId, answerId)
-	VALUE ($userId, $answerId);";
+	$query1="INSERT INTO Votes (answerId)
+	VALUE ($answerId);";
 	query($query1);
 	$query2 ="
 	UPDATE Polls 
