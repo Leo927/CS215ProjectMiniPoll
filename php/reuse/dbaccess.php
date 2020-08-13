@@ -78,6 +78,7 @@ function group_poll_info($result)
 {
 	while($row = $result->fetch_assoc())
 	{
+		$polls[$row['pollId']]['pollId'] = $row['pollId'];
 		$polls[$row['pollId']]['title'] = $row['title'];
 		$polls[$row['pollId']]['createDate'] = $row['createDate'];
 		$polls[$row['pollId']]['closeDate'] = $row['closeDate'];
