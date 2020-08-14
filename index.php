@@ -14,8 +14,6 @@ if(isset($_POST["submitted"]) && $_POST['submitted']==1)
 
 session_start();
 
-
-
 function show_polls()
 {
 	$polls = get_breif_polls(5);
@@ -130,7 +128,11 @@ function check_login()
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<script type="text/javascript" src="<?=ROOT_URI?>js/config.js"></script>
 	<script type="text/javascript" src="js/formFunctions.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/httpFunctions.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/index.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/polls.js"></script>
 </head>
 <body>
 	<?php
@@ -148,8 +150,8 @@ function check_login()
 	
 
 
-	<div class="mx-auto">
-		<?php show_polls(); ?>		
+	<div id="polls-container" class="mx-auto">
+		
 	</div>
 
 	

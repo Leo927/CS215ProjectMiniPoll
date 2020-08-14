@@ -1,6 +1,7 @@
 <?php 
 function load_navbar()
 {
+	
 	?>
 	<nav class="topnav">
 		<a href=<?=ROOT_URI?>>

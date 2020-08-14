@@ -81,9 +81,17 @@ EOT;
 <html lang="en">
 <head>
 	<title>CSSS Poll Management</title>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/config.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<script type="text/javascript" src="<?=ROOT_URI?>js/httpFunctions.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/polls.js"></script>
+	<?php 
+		echo '<script>'."var userId = ".$_SESSION['user']['userId'] ."</script>
+		";
+	 ?>
+	
 </head>
 <body>
 	<?php
@@ -95,10 +103,9 @@ EOT;
 		<h1 class="text-center">Poll Management</h1>	
 	</header>
 
-	<div class="mx-auto">
-		<?php
-		 show_polls();
-		?>		
+	<div class="mx-auto" id="polls-container">
+		
 	</div>
 </body>
+<script type="text/javascript" src="<?=ROOT_URI?>js/management.js"></script>
 </html>

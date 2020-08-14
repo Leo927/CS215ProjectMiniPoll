@@ -108,6 +108,7 @@ SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 4) ;
 
 INSERT INTO Votes (answerId)
+VALUE (6);
 UPDATE Polls 
 SET lastVoteDate = CURRENT_TIMESTAMP
 WHERE pollId = (SELECT pollId FROM Answers WHERE answerId = 6) ;

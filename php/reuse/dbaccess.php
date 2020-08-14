@@ -2,6 +2,7 @@
 require_once ROOT_PATH."php/reuse/exception_handling.php";
 require_once ROOT_PATH.'php/reuse/db.php';
 require_once ROOT_PATH.'php/reuse/security.php';
+require_once ROOT_PATH.'php/reuse/debug.php';
 
 function get_user($email, $password)
 {
@@ -44,10 +45,11 @@ function get_user_vote($userId,$pollId)
 	return $row['answerId'];
 }
 
-function get_polls($userId)
+function get_polls($userId, $orderBy, $desc)
 {
+
 	$userIdString = ($userId?"WHERE creatorId = $userId":"");
-	
+	$orderString = "ORDER BY Polls.". ($orderBy?$orderBy:"closeDate") . ($desc?"DESC":"");
 	
 	$query = "SELECT Polls.pollId, title,createDate,openDate,closeDate,question,lastVoteDate, creatorId, Answers.answerId, avatarURL, screenName, answerString, IF(Votes.answerId IS NULL, 0, COUNT(Answers.answerId)) AS voteCount FROM Polls
 	LEFT JOIN Answers ON Polls.pollId = Answers.pollId
@@ -55,9 +57,10 @@ function get_polls($userId)
 	LEFT JOIN Users ON Polls.creatorId = Users.userId
 	"
 	.$userIdString."
-	GROUP BY Answers.answerId "
+	GROUP BY Answers.answerId 
+	"
+	.$orderString
 	;
-
 	$result = query($query);	
 	if($result->num_rows<=0)
 		return false;
@@ -83,14 +86,19 @@ function group_poll_info($result)
 		$polls[$row['pollId']]['createDate'] = $row['createDate'];
 		$polls[$row['pollId']]['closeDate'] = $row['closeDate'];
 		$polls[$row['pollId']]['question'] = $row['question'];
-		$polls[$row['pollId']]['answers'][$row['answerId']]["answerString"] = $row['answerString'];
-		$polls[$row['pollId']]['answers'][$row['answerId']]["voteCount"]=$row['voteCount'];
+		$polls[$row['pollId']]['answers'][] = array("answerString"=>$row['answerString'],
+													"voteCount"=>$row['voteCount'],
+													"answerId"=>$row['answerId']);
 		$polls[$row['pollId']]['lastVoteDate'] = $row['lastVoteDate'];
 		$polls[$row['pollId']]['creatorId'] = $row['creatorId'];
 		$polls[$row['pollId']]['avatarURL'] = $row['avatarURL'];
 		$polls[$row['pollId']]['screenName'] = $row['screenName'];
 	}
-	return $polls;
+	$output = array();
+	foreach ($polls as $key => $value) {
+		$output[]=$value;
+	}
+	return $output;
 }
 
 function get_poll_by_id($pollId)
@@ -105,9 +113,17 @@ function get_poll_by_id($pollId)
 	if($result->num_rows<=0)
 		return false;
 	$poll = group_poll_info($result);
-	return $poll[$pollId];
+	return $poll[0];
 }
 
+function get_pollId_by_answerId($answerId)
+{
+	
+	$query = "SELECT pollId FROM Answers WHERE answerId = $answerId";
+	$result = query($query);
+	$pollId = $result->fetch_assoc();
+	return $pollId['pollId'];
+}
 
 
 function check_screenname_exist($screenName)

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		document.getElementById("loginForm").addEventListener("submit", checkLogin,false);
 		document.getElementById("email").addEventListener("blur",checkEmail,false);
 		document.getElementById("password").addEventListener("blur",checkPassword,false);
+		
 });	
 
 function checkEmail(event)

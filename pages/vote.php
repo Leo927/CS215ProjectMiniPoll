@@ -29,8 +29,8 @@ function load_poll()
 
 	$poll['pollId'] = $_GET['pollId'];
 	?>
-	<form class="mx-auto" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
-		<div class="info-card black row">
+	<form id="voteForm" class="mx-auto" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+		<div class="info-card black row" id="poll-card">
 			<input type="hidden" name="pollId" id="pollId" value="<?=$_GET[pollId]?>">
 			<img class="avator" src="<?=$poll['avatarURL'] ?>" alt="avator of <?=$poll['screenName'] ?>"/>
 			<span class="user-name black">
@@ -45,21 +45,27 @@ function load_poll()
 			<p class="row">
 				<?=$poll['question'] ?>
 			</p>
+			<div id="answer-container">
 			<?php 
 			foreach ($poll['answers'] as $answerId => $answer) {
 				?>
 				<label class="option-container"><?=$answer['answerString'] ?>
-				<input type="radio" checked="checked" name="answerId" value="<?=$answerId ?>">
+				<input type="radio" checked="checked" name="answerId" value="<?=$answer['answerId'] ?>">
 				<span class="checkmark"></span>
 			</label>
+
 			<?
 		}
 		?>
+		</div>
+		<input id="voteButton" class='form-btn link' type='submit' value='Vote' name='Vote'>
+		<div class="row">
+			<div class="color-sucess col-12 text-center succcess-message" id="successMessage"><?=$success  ?> </div>
+		</div>
 
-
-
-
-		<input class='form-btn link' type='submit' value='Vote' name='Vote'>
+		<div class="row">
+			<div class="danger col-12 text-center" id="errorMessage"><?=$error  ?> </div>
+		</div>
 	</div>		
 </form>
 <?php	
@@ -103,7 +109,11 @@ function poll_closed($poll)
 	<title>Vote for CSSS President</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/config.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<script type="text/javascript" src="<?=ROOT_URI?>js/httpFunctions.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/polls.js"></script>
+	<script type="text/javascript" src="<?=ROOT_URI?>js/vote.js"></script>
 </head>
 <body>
 	<?php
