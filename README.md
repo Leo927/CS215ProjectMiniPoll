@@ -12,6 +12,12 @@ Description of files:
 	-formFunctions.js //contains js functions for general form validation
 	-login.js 	//contains js functions for login 
 	-signUp.js //contains js functions for sign up
+	-httpFuntions.js //some http request functions
+	-config.js //some js constants
+	-index.js //js for index page
+	-management.js //js for management page
+	-polls.js //js functions for requesting polls
+	-vote.js //js for vote page
 /pages //contains all the pages
 	-create.php
 	-logout.php
@@ -20,6 +26,9 @@ Description of files:
 	-signUp.php
 	-vote.php
 /php
+	/api
+		-addVote.php //handle add vote api call
+		-polls.php //handle get votes api call
 	/reuse //contains all general php functions
 		-db.php //contains database login info
 		-dbaccess.php //contains all the functions that deal directly with database. 
